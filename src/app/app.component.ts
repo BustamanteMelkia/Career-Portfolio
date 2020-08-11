@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Portafolio';
+  menuActive: boolean;
+  constructor(){
+    this.menuActive = false;
+  }
+  onClickMenuIcon(){
+    this.menuActive = !this.menuActive;
+  }
 }
