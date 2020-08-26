@@ -22,7 +22,6 @@
 
 .navbar-hide{
     height: 0;
-    overflow: hidden;
 }
 .navbar-active{
     height: 25rem;
@@ -32,12 +31,26 @@
     top: 0;
     right: 0;
     left: 0;
+    overflow: hidden;
     background-color: #575555;
     transition: all 0.5s ease-in-out;
+}
+@media (min-width: 768px){
+    .header-navbar{
+        position: relative;
+        height: unset;
+        background-color: #161925;
+    }
 }
 .header-navbar ul{
     margin: 0;
     padding: 0;
+}
+@media (min-width: 768px){
+    .header-navbar ul{
+        display: flex;
+        justify-content: flex-end;
+    }
 }
 .header-navbar ul li{
     list-style: none;
@@ -47,11 +60,21 @@
     padding: 2rem 0;
     text-align: center;
     text-decoration: none;
-    color: #ffffff;
+    color: #e1e1e1;
     font-size: 1.8rem;
     transition: all 0.5s ease-in-out;
 }
 .header-navbar-link:hover{
     background-color: #3f51b5;
 }
+@media (min-width: 768px){
+    .header-navbar-link{
+        margin-right: 5rem;
+    }
+    .header-navbar-link:hover{
+        background-color: unset;
+        color: #575555;
+    }
+}
+
 
