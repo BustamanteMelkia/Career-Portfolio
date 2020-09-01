@@ -2,7 +2,7 @@
     background-color: #3f51b5;
 }
 .menu-icon{
-    padding: 1rem 0;
+    padding: 1rem 1rem 1rem 0;
     display: flex;
     justify-content: flex-end;
 }
@@ -36,10 +36,14 @@
     transition: all 0.5s ease-in-out;
 }
 @media (min-width: 768px){
+    .header{
+        background-color: #161925;
+
+    }
     .header-navbar{
         position: relative;
         height: unset;
-        background-color: #161925;
+        background-color: inherit;
     }
 }
 .header-navbar ul{

@@ -34,11 +34,6 @@ ul{
 li{
   list-style: none;
 }
-.container{
-  max-width: 1200px;
-  width: 95%;
-  margin: 0 auto;
-}
 .btn{
   padding: 1.5rem 3rem;
   background-color: #3f51b5;
@@ -51,4 +46,15 @@ li{
 }
 .btn:hover{
   background-color: rgba(63, 81, 181, 0.4);
+}
+@media (min-width: 768px){
+  .wrapper{
+    display: inherit;
+    max-width: 1200px;
+    padding: 0 1rem;
+    justify-content: inherit;
+    align-items: inherit;
+    margin: 0 auto;
+    position: inherit;
+  }
 }

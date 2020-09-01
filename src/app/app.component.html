@@ -1,25 +1,26 @@
 <!-- Navigation -->
 <!-- .container is a global style -->
 <header class="header">
-  <div class="container-menu-icon">
-    <div class="container menu-icon">
-      <button mat-mini-fab color="primary" (click)='onClickMenuIcon()'>
-        <mat-icon *ngIf='!menuActive'>menu</mat-icon>
-        <mat-icon *ngIf='menuActive'>clear</mat-icon>
-      </button>
+  <div class="wrapper">
+    <div class="container-menu-icon">
+      <div class="container menu-icon">
+        <button mat-mini-fab color="primary" (click)='onClickMenuIcon()'>
+          <mat-icon *ngIf='!menuActive'>menu</mat-icon>
+          <mat-icon *ngIf='menuActive'>clear</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div class="header-navbar-container">
+      <nav  [className]="menuActive ? 'navbar-active header-navbar' : 'navbar-hide header-navbar'">
+        <ul>
+          <li><a class="header-navbar-link" routerLink='/home'>About</a></li>
+          <li><a class="header-navbar-link" routerLink='/contact'>Contact</a></li>
+          <li><a class="header-navbar-link" routerLink='/projects'>My projects</a></li>
+          <li><a class="header-navbar-link" routerLink='/create-project'>Create Project</a></li>
+        </ul>
+      </nav>
     </div>
   </div>
-  <div class="header-navbar-container">
-    <nav  [className]="menuActive ? 'navbar-active header-navbar' : 'navbar-hide header-navbar'">
-      <ul>
-        <li><a class="header-navbar-link" routerLink='/home'>About</a></li>
-        <li><a class="header-navbar-link" routerLink='/contact'>Contact</a></li>
-        <li><a class="header-navbar-link" routerLink='/projects'>My projects</a></li>
-        <li><a class="header-navbar-link" routerLink='/create-project'>Create Project</a></li>
-      </ul>
-    </nav>
-  </div>
-
 </header>
 
 <!-- Acts as a placeholder that Angular dynamically fills based on the current router state. -->
