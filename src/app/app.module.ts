@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 // httpmodule
 import { HttpClientModule } from '@angular/common/http';
+// FormModule
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 // Routes to define the routes of our aplication
 // RouterModule is a module for routing
@@ -30,7 +32,9 @@ import { MaterialModule } from "./angularMaterial/material/material.module";
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
