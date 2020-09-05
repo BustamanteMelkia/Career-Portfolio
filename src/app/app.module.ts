@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+// httpmodule
+import { HttpClientModule } from '@angular/common/http';
+
 // Routes to define the routes of our aplication
 // RouterModule is a module for routing
 import { AppRoutingModule } from './app-routing.module';
@@ -26,7 +29,8 @@ import { MaterialModule } from "./angularMaterial/material/material.module";
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

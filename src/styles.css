@@ -64,3 +64,12 @@ li{
     position: inherit;
   }
 }
+.active{
+  background-color: #3f51b5;
+}
+@media (min-width: 768px){
+  .active{
+    background-color: unset;
+    border-bottom: 2px solid #e1e1e1;
+  }
+}
