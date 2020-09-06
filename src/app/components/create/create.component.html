@@ -1,36 +1,40 @@
-<p>create works!</p>
-<form (ngSubmit)="onSubmit()" [formGroup]="formGroup" novalidate>
-    <mat-form-field>
-        <mat-label>FirstName</mat-label>
-        <input matInput formControlName='nameControl' [(ngModel)]="project.name">
-        <mat-error *ngIf="name.invalid">Name is required</mat-error>
-    </mat-form-field>
-
-    <mat-form-field>
-        <mat-label>Description</mat-label>
-        <input matInput formControlName='descriptionControl' [(ngModel)]='project.description'>
-        <mat-error *ngIf="description.invalid">Description is required</mat-error>
-    </mat-form-field>
-
-    <mat-form-field>
-        <mat-label>Category</mat-label>
-        <input matInput formControlName='categoryControl' [(ngModel)]='project.category' >
-        <mat-error *ngIf="category.invalid">Category is required</mat-error>
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Year</mat-label>
-        <input type="year" matInput formControlName='yearControl' [(ngModel)]='project.year' >
-        <mat-error *ngIf="year.invalid">Year is required</mat-error>
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Languajes</mat-label>
-        <input matInput formControlName='langsControl' [(ngModel)]='project.langs' >
-        <mat-error *ngIf="langs.invalid">Programming languajes are required</mat-error>
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Image</mat-label>
-        <input matInput formControlName='imageControl' [(ngModel)]='project.image' >
-        <mat-error *ngIf="image.invalid">Category is required</mat-error>
-    </mat-form-field>
-    <button mat-flat-button color="primary">Save</button>
-</form>
+<div class=" form-container">
+    <form (ngSubmit)="onSubmit()" [formGroup]="formGroup" novalidate>
+        <mat-form-field class="field">
+            <mat-label>FirstName</mat-label>
+            <input matInput formControlName='nameControl' [(ngModel)]="project.name">
+            <mat-error *ngIf="name.invalid">Name is required</mat-error>
+        </mat-form-field>
+    
+        <mat-form-field class="field">
+            <mat-label>Description</mat-label>
+            <input matInput formControlName='descriptionControl' [(ngModel)]='project.description'>
+            <mat-error *ngIf="description.invalid">Description is required</mat-error>
+        </mat-form-field>
+    
+        <div class="inline">
+            <mat-form-field class="field">
+                <mat-label>Category</mat-label>
+                <input matInput formControlName='categoryControl' [(ngModel)]='project.category' >
+                <mat-error *ngIf="category.invalid">Category is required</mat-error>
+            </mat-form-field>
+            <mat-form-field class="field">
+                <mat-label>Year</mat-label>
+                <input type="year" matInput formControlName='yearControl' [(ngModel)]='project.year' >
+                <mat-error *ngIf="year.invalid">Year is required</mat-error>
+            </mat-form-field>
+        </div>
+        
+        <mat-form-field class="field">
+            <mat-label>Languajes</mat-label>
+            <input matInput formControlName='langsControl' [(ngModel)]='project.langs' >
+            <mat-error *ngIf="langs.invalid">Programming languajes are required</mat-error>
+        </mat-form-field>
+        <mat-form-field class="field">
+            <mat-label>Image</mat-label>
+            <input matInput formControlName='imageControl' [(ngModel)]='project.image' >
+            <mat-error *ngIf="image.invalid">Category is required</mat-error>
+        </mat-form-field>
+        <button class="btn">Save</button>
+    </form>
+</div>

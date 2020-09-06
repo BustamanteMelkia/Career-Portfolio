@@ -38,12 +38,13 @@ li{
 .btn{
   padding: 1.5rem 3rem;
   background-color: #3f51b5;
-  color: #ffffff;
+  color: #e1e1e1;
   border: none;
   display: block;
   margin: 0 auto;
   cursor: pointer;
   font-size: 2rem;
+  transition: all 0.5s ease-in-out;
 }
 @media (min-width: 768px){
   .btn{
