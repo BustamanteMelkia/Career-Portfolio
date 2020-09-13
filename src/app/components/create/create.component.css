@@ -14,7 +14,6 @@ form{
     display: block;
     margin-bottom: 3rem;
 }
-
 @media (min-width: 768px){
     .inline{
         display: flex;
@@ -23,4 +22,8 @@ form{
 }
 button{
     width: 100%;
+}
+button[disabled]{
+    opacity: 0.5;
+    cursor: not-allowed;
 }

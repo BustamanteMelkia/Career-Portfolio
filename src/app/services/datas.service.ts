@@ -1,15 +1,27 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
+import { URL } from './globals'
+
+import { IProject } from '../models/Project'
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  constructor(http : HttpClient) { }
+  constructor(private _http : HttpClient) { }
 
   getData(){
     console.log("Service works");
+  }
+
+  saveProject(project: IProject): Observable<any>{
+    // Convertir el parámetro project a JSON
+    let params =JSON.stringify(project);
+    console.log(params);
+    
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this._http.post('http://localhost:3700/save-project',params,{ headers:headers });
   }
 }
