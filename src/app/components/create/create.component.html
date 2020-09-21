@@ -1,4 +1,4 @@
-<div class="form-container">
+<div class="form-container" >
     <form (ngSubmit)="onSubmit()" [formGroup]="formGroup" novalidate>
         <mat-form-field class="field">
             <mat-label>Name of the project</mat-label>
@@ -6,6 +6,7 @@
                 matInput 
                 formControlName='nameControl' 
                 [(ngModel)]="project.name"
+                (onblur)='onBlur()'
             >
             <mat-error *ngIf="name.invalid">Name is required</mat-error>
         </mat-form-field>
@@ -16,6 +17,7 @@
                 matInput 
                 formControlName='descriptionControl' 
                 [(ngModel)]='project.description'
+                (onblur)='onBlur()'
             >
             <mat-error *ngIf="description.invalid">Description is required</mat-error>
         </mat-form-field>
@@ -27,6 +29,7 @@
                     matInput 
                     formControlName='categoryControl' 
                     [(ngModel)]='project.category' 
+                    (onblur)='onBlur()'
                 >
                 <mat-error *ngIf="category.invalid">Category is required</mat-error>
             </mat-form-field>
@@ -48,6 +51,7 @@
                 matInput 
                 formControlName='langsControl' 
                 [(ngModel)]='project.langs' 
+                (onblur)='onBlur()'
             >
             <mat-error *ngIf="langs.invalid">Programming languajes are required</mat-error>
         </mat-form-field>
@@ -60,6 +64,8 @@
                 accept="image/png, .jpeg, .jpg"
             >
         </div>
+        <span class="message success" *ngIf = 'status == "success"'>{{ message }}</span>
+        <span class="message error" *ngIf = 'status == "failed"'>{{ message }}</span>
         <button class="btn" [disabled]='formGroup.invalid'>Save</button>
     </form>
 </div>

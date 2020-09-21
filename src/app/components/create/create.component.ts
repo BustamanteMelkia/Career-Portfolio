@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators, AbstractControl } from '@angular/forms';
-// import { NgForm } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, Validators, AbstractControl, FormGroupDirective } from '@angular/forms';
+
 // Import Project Interface
 import { IProject } from '../../models/Project';
+
 // Import data service
 import { DataService } from '../../services/datas.service';
 
@@ -12,11 +13,18 @@ import { DataService } from '../../services/datas.service';
   styleUrls: ['./create.component.css']
 })
 export class CreateComponent implements OnInit {
+  @ViewChild(FormGroupDirective) form: FormGroupDirective;
+
   project : IProject;
   // FormGroup que nos permitirá validar el formulario
   formGroup : FormGroup;
+  message: String;
+  status: string;
+  
 
   constructor(private _dataService: DataService) {
+    this.message = '';
+    this.status = '';
     this.project = {
       _id: '',
       name: '',
@@ -40,12 +48,21 @@ export class CreateComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.project);
+    // console.log(this.project);
     this._dataService.saveProject(this.project).subscribe(
-      response => console.log(response),
-      err => console.log(err)      
+      response => {
+        this.message = 'Registro realizado correctamente';
+        this.status = 'success';
+        this.form.resetForm()
+      },
+      err => {
+        this.message = 'Error: No se pudo guardar el proyeco';
+        this.status = 'failed';
+      }
     );
   }
+
+
   // Obtener el elemento name del formGroup
   get name(): AbstractControl{
     return this.formGroup.get('nameControl');
@@ -70,14 +87,7 @@ export class CreateComponent implements OnInit {
   get image(): AbstractControl{
     return this.formGroup.get('imageControl');
   }
-
-  public getError(controlName: string): string {
-    let error = '';
-    const control = this.formGroup.get(controlName);
-    if (control.touched && control.errors != null) {
-      error = JSON.stringify(control.errors);
-    }
-    return error;
+  onBlur(){
+    this.message = '';
   }
-
 }

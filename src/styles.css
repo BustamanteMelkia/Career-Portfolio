@@ -74,3 +74,19 @@ li{
     border-bottom: 2px solid #e1e1e1;
   }
 }
+
+.message{
+  text-align: center;
+  /* padding: 2rem; */
+  margin: 1rem 4rem;
+  display: block;
+}
+.message.success{
+  background-color: rgb(171, 235, 197);
+  color: rgb(24, 131, 74);
+  padding: 1rem 0;
+}
+.message.error{
+  background-color: rgb(238, 186, 177);
+  color: rgb(165, 44, 44);
+}
