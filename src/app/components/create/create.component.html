@@ -62,6 +62,7 @@
                 [(ngModel)]='project.image' 
                 formControlName='imageControl' 
                 accept="image/png, .jpeg, .jpg"
+                (change) = 'onFileChange($event)'
             >
         </div>
         <span class="message success" *ngIf = 'status == "success"'>{{ message }}</span>

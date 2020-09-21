@@ -6,6 +6,8 @@ import { IProject } from '../../models/Project';
 
 // Import data service
 import { DataService } from '../../services/datas.service';
+import { UploadService } from '../../services/upload.service';
+import { URL } from '../../services/globals';
 
 @Component({
   selector: 'app-create',
@@ -20,9 +22,13 @@ export class CreateComponent implements OnInit {
   formGroup : FormGroup;
   message: String;
   status: string;
+  filesToUpload: Array<File>;
   
 
-  constructor(private _dataService: DataService) {
+  constructor(
+    private _dataService: DataService,
+    private _upload: UploadService
+    ) {
     this.message = '';
     this.status = '';
     this.project = {
@@ -53,6 +59,12 @@ export class CreateComponent implements OnInit {
       response => {
         this.message = 'Registro realizado correctamente';
         this.status = 'success';
+        console.log("Proyecto creado exitosamente");
+        
+        this._upload.makeFileRequest(URL+'/upload-image/'+response.project._id,[], this.filesToUpload, 'image')
+        .then(response =>{
+          console.log(response);
+        }) 
         this.form.resetForm()
       },
       err => {
@@ -89,5 +101,9 @@ export class CreateComponent implements OnInit {
   }
   onBlur(){
     this.message = '';
+  }
+
+  onFileChange(eventFile: any){
+    this.filesToUpload = <Array<File>>eventFile.target.files;
   }
 }
