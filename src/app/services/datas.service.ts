@@ -24,4 +24,7 @@ export class DataService {
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
     return this._http.post(URL+'/save-project',params,{ headers:headers });
   }
+  getProjects(): Observable<any>{
+    return this._http.get(URL+'/projects');
+  }
 }

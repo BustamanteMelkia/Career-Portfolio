@@ -1,1 +1,14 @@
-<p>projects works!</p>
+<div class="wrapper">
+    <h2 class="projects-title">Projects</h2>
+</div>
+<div class="projects">
+    <div class="wrapper">
+        <ul>
+            <li class="project" *ngFor = 'let project of projects'>
+                <img src="{{url}}/get-image/{{project.image}}" alt="image Project">
+                <h3 class="project-title">{{ project.name }}</h3>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- {{ project | json }} -->
