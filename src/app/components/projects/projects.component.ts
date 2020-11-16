@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { URL } from '../../services/globals';
 import { DataService } from '../../services/datas.service';
 import { IProject } from '../../models/Project';
+
  
 @Component({
   selector: 'app-projects',
@@ -13,7 +14,9 @@ export class ProjectsComponent implements OnInit {
   projects: Array<IProject>;
   url: String;
 
-  constructor(private _dataService : DataService) {
+  constructor(
+    private _dataService : DataService
+  ) {
     this.projects = new Array();
     this.url= URL;
   }

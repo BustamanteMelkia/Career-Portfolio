@@ -1,0 +1,74 @@
+<div class="form-container" *ngIf = 'project'>
+    <form (ngSubmit)="onSubmit()" [formGroup]="formGroup" novalidate>
+        <mat-form-field class="field">
+            <mat-label>Name of the project</mat-label>
+            <input 
+                matInput 
+                formControlName='nameControl' 
+                [(ngModel)]="project.name"
+                (onblur)='onBlur()'
+            >
+            <mat-error *ngIf="name.invalid">Name is required</mat-error>
+        </mat-form-field>
+    
+        <mat-form-field class="field">
+            <mat-label>Description</mat-label>
+            <input 
+                matInput 
+                formControlName='descriptionControl' 
+                [(ngModel)]='project.description'
+                (onblur)='onBlur()'
+            >
+            <mat-error *ngIf="description.invalid">Description is required</mat-error>
+        </mat-form-field>
+    
+        <div class="inline">
+            <mat-form-field class="field">
+                <mat-label>Category</mat-label>
+                <input 
+                    matInput 
+                    formControlName='categoryControl' 
+                    [(ngModel)]='project.category' 
+                    (onblur)='onBlur()'
+                >
+                <mat-error *ngIf="category.invalid">Category is required</mat-error>
+            </mat-form-field>
+            <mat-form-field class="field">
+                <mat-label>Year</mat-label>
+                <input 
+                    type="year" 
+                    matInput 
+                    formControlName='yearControl' 
+                    [(ngModel)]='project.year' 
+                >
+                <mat-error *ngIf="year.invalid">{{ errorMessageOfYear() }}</mat-error>
+            </mat-form-field>
+        </div>
+        
+        <mat-form-field class="field">
+            <mat-label>Languajes</mat-label>
+            <input 
+                matInput 
+                formControlName='langsControl' 
+                [(ngModel)]='project.langs' 
+                (onblur)='onBlur()'
+            >
+            <mat-error *ngIf="langs.invalid">Programming languajes are required</mat-error>
+        </mat-form-field>
+
+        <img src="{{url}}/get-image/{{project.image}}" alt="image Project">
+
+        <div class="field file" >
+            <input 
+                type="file" 
+                [(ngModel)]='auxImage' 
+                formControlName='imageControl' 
+                accept="image/png, .jpeg, .jpg"
+                (change) = 'onFileChange($event)'
+            >
+        </div>
+        <span class="message success" *ngIf = 'status == "success"'>{{ message }}</span>
+        <span class="message error" *ngIf = 'status == "failed"'>{{ message }}</span>
+        <button class="btn" [disabled]='formGroup.invalid'>Save</button>
+    </form>
+</div>

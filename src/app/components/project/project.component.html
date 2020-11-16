@@ -1,0 +1,29 @@
+<article class="project" *ngIf='project'>
+    <div class="wrapper">
+        <figure>
+            <img src="{{url}}/get-image/{{project.image}}" alt="image Project">
+        </figure>
+        <div class="project-info">
+            <h1>
+                {{ project.name }}
+            </h1>
+            <p class="project-description">
+                {{project.description}}
+            </p>
+            <p class="project-year">{{ project.year }}</p>
+            <nav class="options">
+                <a class="btn" routerLink= '/edit-project/{{project._id}}'>Edit</a>
+                <button class="btn" (click)='setConfirm(true)'>Delete</button>
+            </nav>
+        </div>
+    </div>
+    <div class="alert-container" *ngIf= 'confirm == true'>
+        <div class="alert">
+            <p class="alert-message">¿Estás seguro que desea borrar el proyecto?</p>
+            <div class="options">
+                <button class="btn" (click)='setConfirm(false)'>No</button>
+                <button class="btn" (click)='deleteProject()'>Si</button>
+            </div>
+        </div>
+    </div>
+</article>

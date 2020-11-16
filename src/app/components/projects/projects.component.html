@@ -5,9 +5,12 @@
     <div class="wrapper">
         <ul>
             <li class="project" *ngFor = 'let project of projects'>
-                <img src="{{url}}/get-image/{{project.image}}" alt="image Project">
-                <h3 class="project-title">{{ project.name }}</h3>
+                <a routerLink= '/project-details/{{project._id}}'>
+                    <img src="{{url}}/get-image/{{project.image}}" alt="image Project">
+                    <h3 class="project-title">{{ project.name }}</h3>
+                </a>
             </li>
+            
         </ul>
     </div>
 </div>

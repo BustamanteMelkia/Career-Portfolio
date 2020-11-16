@@ -18,6 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Import components of Angular Material
 import { MaterialModule } from "./angularMaterial/material/material.module";
+import { ProjectComponent } from './components/project/project.component';
+import { EditComponent } from './components/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { MaterialModule } from "./angularMaterial/material/material.module";
     AboutComponent,
     ContactComponent,
     ProjectsComponent,
-    CreateComponent
+    CreateComponent,
+    ProjectComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

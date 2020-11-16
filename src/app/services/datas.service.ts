@@ -27,4 +27,19 @@ export class DataService {
   getProjects(): Observable<any>{
     return this._http.get(URL+'/projects');
   }
+  getProject(projectId: String): Observable<any>{
+    return this._http.get(URL+'/project/'+projectId);
+  }
+  deleteProject(projectId: String): Observable<any>{
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this._http.delete(URL+'/delete/'+projectId, {headers: headers});
+  }
+
+  updateProject(project): Observable<any>{
+    let id = project._id;
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
+    let param = JSON.stringify(project);    
+
+    return this._http.put(URL+'/update-project/'+id,param, {headers: headers});
+  }
 }
